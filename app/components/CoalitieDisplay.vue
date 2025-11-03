@@ -1,39 +1,32 @@
 <template>
-  <div class="partij-display">
+  <div class="coalitie-display">
     <div class="visual">
       <PartijSegment v-for="segment in segments" :segment />
     </div>
     <div class="counter">
       <span class="sr-only">
-        {{ totalVisibleZetels }} zetels ({{ visiblePartijNames }}).
+        {{ numCoalitieZetels }} zetels ({{ coalitiePartijNames }}).
       </span>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { partijen } = usePartijen();
+const { partijen, coalitiePartijen } = usePartijen();
 
-const totalVisibleZetels = computed(() =>
-  sum(
-    partijen.value
-      .filter((partij) => partij.isVisible)
-      .map((partij) => partij.numZetels)
-  )
+const numCoalitieZetels = computed(() =>
+  sum(coalitiePartijen.value.map((partij) => partij.numZetels))
 );
 
-const visiblePartijNames = computed(() =>
-  partijen.value
-    .filter((partij) => partij.isVisible)
-    .map((partij) => partij.name)
-    .join(", ")
+const coalitiePartijNames = computed(() =>
+  coalitiePartijen.value.map((partij) => partij.name).join(", ")
 );
 
 const segments = computed(() => {
   let startAngle = 0;
 
   return partijen.value.map((partij) => {
-    const angle = partij.isVisible ? (180 * partij.numZetels) / 150 : 0;
+    const angle = partij.isInCoalitie ? (180 * partij.numZetels) / 150 : 0;
 
     const segment = {
       color: partij.color,
@@ -49,20 +42,20 @@ const segments = computed(() => {
 </script>
 
 <style scoped>
-@property --total-visible-zetels {
+@property --num-coalitie-zetels {
   syntax: "<integer>";
   initial-value: 0;
   inherits: false;
 }
 
-.partij-display {
+.coalitie-display {
   display: grid;
   grid-template-areas: "stack";
   gap: 0.5rem;
   justify-items: center;
 }
 
-.partij-display > * {
+.coalitie-display > * {
   grid-area: stack;
 }
 
@@ -80,16 +73,16 @@ const segments = computed(() => {
 }
 
 .counter {
-  --total-visible-zetels: v-bind("totalVisibleZetels");
+  --num-coalitie-zetels: v-bind("numCoalitieZetels");
 
   font-size: 3rem;
   font-weight: 700;
   align-self: end;
-  transition: --total-visible-zetels 0.5s;
-  counter-reset: total-visible-zetels var(--total-visible-zetels);
+  transition: --num-coalitie-zetels 0.5s;
+  counter-reset: num-coalitie-zetels var(--num-coalitie-zetels);
 }
 
 .counter::after {
-  content: counter(total-visible-zetels);
+  content: counter(num-coalitie-zetels);
 }
 </style>

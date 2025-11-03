@@ -2,7 +2,7 @@ export type Partij = {
   name: string;
   numZetels: number;
   color: string;
-  isVisible: boolean;
+  isInCoalitie: boolean;
 };
 
 const partijData = [
@@ -24,25 +24,29 @@ const partijData = [
 ];
 
 export function usePartijen() {
-  const partijVisibility = useState<Record<string, boolean>>(
-    "partij-visibility",
+  const coalitieRecord = useState<Record<string, boolean>>(
+    "coalitie-record",
     () => ({})
   );
 
   const partijen = computed<Partij[]>(() =>
     partijData.map((partij) => ({
       ...partij,
-      isVisible: partijVisibility.value[partij.name] || false,
+      isInCoalitie: coalitieRecord.value[partij.name] || false,
     }))
   );
 
-  function toggle(partij: Partij) {
-    partijVisibility.value[partij.name] = !partijVisibility.value[partij.name];
+  const coalitiePartijen = computed<Partij[]>(() =>
+    partijen.value.filter((partij) => partij.isInCoalitie)
+  );
+
+  function toggleCoalitie(partij: Partij) {
+    coalitieRecord.value[partij.name] = !coalitieRecord.value[partij.name];
   }
 
-  function reset() {
-    partijVisibility.value = {};
+  function emptyCoalitie() {
+    coalitieRecord.value = {};
   }
 
-  return { partijen, toggle, reset };
+  return { partijen, coalitiePartijen, toggleCoalitie, emptyCoalitie };
 }

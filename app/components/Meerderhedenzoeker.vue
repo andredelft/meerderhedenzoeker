@@ -1,7 +1,7 @@
 <template>
   <section class="meerderhedenzoeker">
-    <PartijDisplay />
-    <PartijControls />
+    <CoalitieDisplay />
+    <CoalitieControls />
   </section>
 </template>
 

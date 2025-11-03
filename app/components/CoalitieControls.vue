@@ -3,12 +3,12 @@
     <div class="partij-button-container">
       <PartijButton v-for="partij in partijen" :partij />
     </div>
-    <button class="reset" @click="reset()">Begin opnieuw</button>
+    <button class="reset" @click="emptyCoalitie()">Begin opnieuw</button>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { partijen, reset } = usePartijen();
+const { partijen, emptyCoalitie } = usePartijen();
 </script>
 
 <style scoped>

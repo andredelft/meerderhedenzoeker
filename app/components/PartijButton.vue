@@ -1,15 +1,15 @@
 <template>
   <button
     class="partij-button"
-    :class="{ visible: partij.isVisible }"
-    @click="toggle(partij)"
+    :class="{ 'in-coalitie': partij.isInCoalitie }"
+    @click="toggleCoalitie(partij)"
   >
     {{ partij.name }}
   </button>
 </template>
 
 <script lang="ts" setup>
-const { toggle } = usePartijen();
+const { toggleCoalitie } = usePartijen();
 
 defineProps<{ partij: Partij }>();
 </script>
@@ -24,11 +24,11 @@ defineProps<{ partij: Partij }>();
   background: hsl(0, 0%, 95%);
 }
 
-.partij-button:not(.visible):hover {
+.partij-button:not(.in-coalitie):hover {
   background: hsl(0, 0%, 85%);
 }
 
-.visible {
+.in-coalitie {
   background: v-bind("partij.color");
   color: white;
 }
