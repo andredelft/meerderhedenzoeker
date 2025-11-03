@@ -1,8 +1,8 @@
 # Meerderhedenzoeker
 
-Rebuild van de meerderhedenkiezer van de [NOS]().
+Rebuild van de meerderhedenkiezer van de [NOS](https://app.nos.nl/nieuws/tk2025/#coalitiebouwer).
 
-![./demo.gif]
+![](./demo.gif)
 
 ## Setup
 
