@@ -1,6 +1,6 @@
 # Meerderhedenzoeker
 
-Rebuild van de meerderhedenkiezer van de [NOS](https://app.nos.nl/nieuws/tk2025/#coalitiebouwer).
+Rebuild van de meerderhedenzoeker van de [NOS](https://app.nos.nl/nieuws/tk2025/#coalitiebouwer).
 
 ![](./demo.gif)
 
