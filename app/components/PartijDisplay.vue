@@ -5,7 +5,7 @@
     </div>
     <div class="counter">
       <span class="sr-only">
-        {{ totalVisibleZetels }} zetels ({{ visiblePartijenNames }}).
+        {{ totalVisibleZetels }} zetels ({{ visiblePartijNames }}).
       </span>
     </div>
   </div>
@@ -22,7 +22,7 @@ const totalVisibleZetels = computed(() =>
   )
 );
 
-const visiblePartijenNames = computed(() =>
+const visiblePartijNames = computed(() =>
   partijen.value
     .filter((partij) => partij.isVisible)
     .map((partij) => partij.name)
@@ -49,7 +49,7 @@ const segments = computed(() => {
 </script>
 
 <style scoped>
-@property --zetel-aantal {
+@property --total-visible-zetels {
   syntax: "<integer>";
   initial-value: 0;
   inherits: false;

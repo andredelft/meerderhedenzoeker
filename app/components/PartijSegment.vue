@@ -35,8 +35,7 @@ const cssAngleEnd = computed(() => `${segment.endAngle ?? 0}deg`);
   background: conic-gradient(
     from 270deg at 50% 100%,
     transparent var(--angle-start),
-    v-bind("segment.color") var(--angle-start),
-    v-bind("segment.color") var(--angle-end),
+    v-bind("segment.color") var(--angle-start) var(--angle-end),
     transparent var(--angle-end)
   );
 }
