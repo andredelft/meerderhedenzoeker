@@ -5,14 +5,7 @@
       <PartijControls />
     </div>
   </NuxtLayout>
-  <pre>{{ partijen }}</pre>
-  <pre>{{ nuxt.payload }}</pre>
 </template>
-
-<script lang="ts" setup>
-const nuxt = useNuxtApp();
-const { partijen } = usePartijen();
-</script>
 
 <style>
 .container {
