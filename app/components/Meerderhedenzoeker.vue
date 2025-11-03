@@ -1,12 +1,12 @@
 <template>
-  <section class="meerderheden-kiezer">
+  <section class="meerderhedenzoeker">
     <PartijDisplay />
     <PartijControls />
   </section>
 </template>
 
 <style scoped>
-.meerderheden-kiezer {
+.meerderhedenzoeker {
   display: grid;
   gap: 2rem;
   align-items: end;
@@ -14,7 +14,7 @@
 }
 
 @media (width >= 50rem) {
-  .meerderheden-kiezer {
+  .meerderhedenzoeker {
     grid-template-columns: 2fr 1fr;
   }
 }

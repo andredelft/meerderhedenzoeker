@@ -1,6 +1,8 @@
-# Nuxt Minimal Starter
+# Meerderhedenzoeker
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Rebuild van de meerderhedenkiezer van de [NOS]().
+
+![./demo.gif]
 
 ## Setup
 

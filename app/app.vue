@@ -1,5 +1,5 @@
 <template>
   <NuxtLayout>
-    <MeerderhedenKiezer />
+    <Meerderhedenzoeker />
   </NuxtLayout>
 </template>
